@@ -3,6 +3,8 @@ This is the felinemotion repo for CSE583 project
 
 # Project Sturcture
 
+----
+
 Felinemotion (master)  
 
 |---Data  
@@ -33,3 +35,5 @@ Felinemotion (master)
 |---LICENSE.txt  
 |---README.md   
 |---setup.py 
+
+----
