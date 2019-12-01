@@ -4,10 +4,10 @@ This is the felinemotion repo for CSE583 project
 # Project Sturcture
 
 ----
-
+```
 Felinemotion (master)  
 
-|---Data  
+|---Data
     |---vid
         |---trainingSet
     |---img
@@ -36,4 +36,5 @@ Felinemotion (master)
 |---README.md   
 |---setup.py 
 
+```
 ----
