@@ -25,7 +25,7 @@ Felinemotion (master)
         |---__init__.py
         |---unittests.py
 |---doc
-    |---Felinemotion_final.pdf   
+    |---Felinemotion_final.pdf
     |---functional_specifications.ipynb
     |---component_specifications.ipynb
 |---.gitignore  
