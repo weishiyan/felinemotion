@@ -16,7 +16,7 @@ def save_csv_raw(sound_folder):
     for i in files_list:
         if i.endswith('.wav'):
             converted = convert_mel_one(join(sound_folder,i))
-            classifier_itr = i[:4]
+            classifier_itr = i[:-4]
             classifier = np.append(classifier,classifier_itr)
             csv_file = np.vstack((csv_file,converted))
             
