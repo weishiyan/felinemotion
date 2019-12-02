@@ -1,49 +1,58 @@
+import os
 import cv2
 import numpy as np
 import moviepy.editor as mp
 
+""" This script receive a mp4 file in the same directory as input
+    output will be a folder of extracted frames and a wav file for audio
+    that has the same name as the input"""
 
 # Extract the audio into wav file
-audioClip = mp.AudioFileClip("test.mp4")
-audioClip.write_audiofile("test.wav")
+name = "test"
+audioClip = mp.AudioFileClip(name + ".mp4")
+audioClip.write_audiofile(name + ".wav")
 
 # Create a VideoCapture object
-cap = cv2.VideoCapture('test.mp4')
+cam = cv2.VideoCapture(name + ".mp4")
+
+try:
+
+    # creating a folder named data
+    if not os.path.exists(name):
+        os.makedirs(name)
+
+    # if not created then raise error
+except OSError:
+    print('Error: Creating directory of frames')
 
 # Check if camera opened successfully
-if (cap.isOpened() == False):
+if (cam.isOpened() == False):
     print("Unable to read camera feed")
 
-# Default resolutions of the frame are obtained.The default resolutions are system dependent.
-# We convert the resolutions from float to integer.
-frame_width = int(cap.get(3))
-frame_height = int(cap.get(4))
-
-# Define the codec and create VideoWriter object.The output is stored in 'outpy.avi' file.
-out = cv2.VideoWriter('outpy.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 10, (frame_width, frame_height))
+# frame
+currentframe = 0
 
 while (True):
-    ret, frame = cap.read()
 
-    if ret == True:
+    # reading from frame
+    ret, frame = cam.read()
 
-        # Write the frame into the file 'output.avi'
-        out.write(frame)
+    if ret:
+        # if video is still left continue creating images
+        name = './frames/frame' + str(currentframe) + '.jpg'
+        print('Creating...' + name)
 
-        # # Display the resulting frame
-        # cv2.imshow('frame', frame)
-        #
-        # # Press Q on keyboard to stop recording
-        # if cv2.waitKey(1) & 0xFF == ord('q'):
-        #     break
+        # writing the extracted images
+        cv2.imwrite(name, frame)
 
-    # Break the loop
+        # increasing counter so that it will
+        # show how many frames are created
+        currentframe += 1
     else:
         break
 
 # When everything done, release the video capture and video write objects
-# cap.release()
-out.release()
+# cam.release()
 
 # Closes all the frames
 cv2.destroyAllWindows()
