@@ -39,11 +39,11 @@ while (True):
 
     if ret:
         # if video is still left continue creating images
-        name = './frames/frame' + str(currentframe) + '.jpg'
-        print('Creating...' + name)
+        frameName = './' + name + '/frame' + str(currentframe) + '.jpg'
+        # print('Creating...' + frameName)
 
         # writing the extracted images
-        cv2.imwrite(name, frame)
+        cv2.imwrite(frameName, frame)
 
         # increasing counter so that it will
         # show how many frames are created
