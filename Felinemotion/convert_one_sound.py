@@ -14,5 +14,8 @@ def convert_mel_one(sound):
     src, sr = librosa.load(sound, sr=SR, mono=True)
     len_second = 3.0 # 3 seconds
     src = src[:int(sr*len_second)] # crop first 3 seconds
+    if len(src) < int(sr*len_second):
+        N = int(sr*len_second) - len(src)
+        src = np.pad(src, (0, N), 'constant')
     src_mel = librosa.feature.melspectrogram(y=src, sr=sr)
-    return src_mel
+    return src_mel.flatten()
