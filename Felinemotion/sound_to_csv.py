@@ -38,11 +38,13 @@ def save_csv_raw(sound_folder):
     savetxt(sound_folder+'/raw.csv',csv_file,delimiter=",")
     return classifier
 
-def add_label(matrix):
+def add_label():
     alpha_list = [] 
     alpha = 'a'
     for i in range(0, 20): 
         alpha_list.append(alpha) 
         alpha = chr(ord(alpha) + 1)
-    return x_reduced
+    return alpha_list
+
+
 
