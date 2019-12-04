@@ -1,16 +1,16 @@
-import os
-import cv2
-import moviepy.editor as mp
-
 """ This module receive a mp4 file in the same directory as input
     output will be a folder of extracted frames and a wav file for audio
     that has the same name as the input
-    
-    Input: video name that in the same directory
-    Output: exported WAV file and a folder of image frames"""
+        Input: video name that in the same directory
+        Output: exported WAV file and a folder of image frames"""
+
+import os
+import moviepy.editor as mp
+import cv2
 
 
 def video_input(name):
+    """Extract audio file and images frame from user video"""
     # Extract the audio into wav file
     audio = mp.AudioFileClip(name + ".mp4")
     audio.write_audiofile(name + ".wav")
