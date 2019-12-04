@@ -9,6 +9,8 @@ from numpy import asarray
 from numpy import savetxt
 from os.path import join
 
+
+
 def save_csv_raw(sound_folder):
     files_list = os.listdir(sound_folder)    
     csv_file = np.zeros(12032)
