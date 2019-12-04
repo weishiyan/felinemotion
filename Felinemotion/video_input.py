@@ -4,11 +4,13 @@ import moviepy.editor as mp
 
 """ This module receive a mp4 file in the same directory as input
     output will be a folder of extracted frames and a wav file for audio
-    that has the same name as the input"""
+    that has the same name as the input
+    
+    Input: video name that in the same directory
+    Output: exported WAV file and a folder of image frames"""
 
 
 def video_input(name):
-
     # Extract the audio into wav file
     audio = mp.AudioFileClip(name + ".mp4")
     audio.write_audiofile(name + ".wav")
