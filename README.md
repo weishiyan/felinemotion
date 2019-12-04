@@ -1,7 +1,7 @@
 # Felinemotion
 This is the felinemotion repo for CSE583 project
 
-# Project Sturcture
+# Project Structure
 
 ----
 ```
