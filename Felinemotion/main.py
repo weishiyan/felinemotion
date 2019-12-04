@@ -24,20 +24,30 @@ def uploader():
         if file.filename == '':
             # flash('No selected file')
             return 'No files uploaded!'
-            # return render_template('login.html')
         if file and allowed_file(file.filename):
             file.filename = 'userInput.mp4'
             file.save(secure_filename(file.filename))
             vi.video_input("userInput")
-            return render_template('login.html')
+            return render_template('image.html')
             # return 'File uploaded successfully...'
         else:
             return "Wrong file type! Please re-upload a different file."
 
 
-# @app.route('/')
-# def student():
-#    return render_template('student.html')
+@app.route('/a')
+def img1():
+    return 'a'
+
+
+@app.route('/b')
+def img2():
+    return 'b'
+
+
+@app.route('/c')
+def img3():
+    return 'c'
+
 
 @app.route('/upload')
 def upload_file():
