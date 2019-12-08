@@ -13,23 +13,23 @@ def video_input(name):
     """Extract audio file and images frame from user video"""
     # Extract the audio into wav file
     audio = mp.AudioFileClip(name + ".mp4")
-    audio.write_audiofile(name + ".wav")
+    audio.write_audiofile('./userData/' + name + ".wav")
 
     # Create a VideoCapture object
     cam = cv2.VideoCapture(name + ".mp4")
 
-    try:
-        # creating a folder named data
-        if not os.path.exists(name):
-            os.makedirs(name)
-
-        # if not created then raise error
-    except OSError:
-        print('Error: Creating directory of frames')
-
-    # Check if camera opened successfully
-    if cam.isOpened() is False:
-        print("Unable to read camera feed")
+    # try:
+    #     # creating a folder named data
+    #     if not os.path.exists("userData/frames"):
+    #         os.makedirs("userData/frames")
+    #
+    #     # if not created then raise error
+    # except OSError:
+    #     print('Error: Creating directory of frames')
+    #
+    # # Check if camera opened successfully
+    # if cam.isOpened() is False:
+    #     print("Unable to read camera feed")
 
     # frame
     current_frame = 0
@@ -40,7 +40,7 @@ def video_input(name):
 
         if ret:
             # if video is still left continue creating images
-            frame_name = './' + name + '/frame' + str(current_frame) + '.jpg'
+            frame_name = './' + 'userData/frames' + '/frame' + str(current_frame) + '.jpg'
             # print('Creating...' + frameName)
 
             # writing the extracted images
