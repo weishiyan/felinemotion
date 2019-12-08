@@ -1,16 +1,13 @@
 import os
 import random
 import cv2
-def pick_three(path2String, outputString):
+def pick_three(path2string, outputstring):
 	"""
 	test
 	"""
-	path2 = path2String
-	#Images with cat face file save path
-	#path2 = 'e:\\2019fall\\CSE583\\FellinEmotion\\cat-face-detector\\image_select\\'
-	output = outputString
-	#Images with cat face file save path
-	#output = 'e:\\2019fall\\CSE583\\FellinEmotion\\cat-face-detector\\image_output\\'
+	# dir = "userData/"
+	path2 = path2string
+	output = outputstring
 	files_out = []
 	# r=root, d=directories, f = files
 	for root, directories, files in os.walk(path2):
