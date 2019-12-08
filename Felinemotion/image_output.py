@@ -28,7 +28,7 @@ def image_output(directory, image):
         avg_img = sum_img / 100
         i2 = i + 1
 	num_data.append(i2)
-        img_data.append(avg_img)
+	img_data.append(avg_img)
     df_img = pd.DataFrame({'CatID':num_data,'useInput':img_data})
     df_img = df_img.transpose()
     df_img.to_csv(csv_loc, header = False)
