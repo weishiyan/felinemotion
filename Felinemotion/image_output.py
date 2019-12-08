@@ -9,15 +9,14 @@ import numpy as np
 import pandas as pd
 # load selected image
 
-def image_output(image2string, csvstring):
+def image_output(directory, image):
     """
     test
     """
-    image_loc = image2string
-    # image path
-    # path = '.. \cat-face-detector\image_select\happy_02_YG.JPG'
-    csv_loc = csvstring
-    # 'E:\\2019fall\CSE583\FellinEmotion\cat-face-detector\image_output\data.csv'
+    # dir = "userData/"
+    # imge = "user1.jpg"
+    image_loc = directory + image
+    csv_loc = directory + 'selected_image.csv'
     img = cv2.imread(image_loc, 0)
     img2 = np.asarray(img).reshape(-1)
     num = 400
