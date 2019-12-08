@@ -9,7 +9,7 @@ import audio_training
 
 def audio_input(wav_input):
     user_sound = audio_training.convert_mel_one(wav_input)
-    x_features = pd.read_csv('audio_raw.csv')
+    x_features = pd.read_csv('trainingData/audio_raw.csv')
     x_features.loc[len(x_features)] = user_sound
     scaler = StandardScaler()
     x_features_scaled = scaler.fit_transform(x_features)
@@ -19,5 +19,5 @@ def audio_input(wav_input):
     alpha_list = audio_training.add_label()
     user_output = pd.DataFrame(np.vstack((alpha_list, x_reduced[-1])))
     user_output.insert(0, "00", ['catID', 'userInput'])
-    user_output.to_csv(r'audio_test.csv', index=None, header=False)
+    user_output.to_csv(r'userData/audio_test.csv', index=None, header=False)
     
