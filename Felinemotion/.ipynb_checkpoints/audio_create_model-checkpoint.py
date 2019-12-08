@@ -8,7 +8,7 @@ import audio_training
 
 def create_model(training_folder):
     classifier = audio_training.save_csv_raw(training_folder)
-    x_features = pd.read_csv('userData/audio_raw.csv')
+    x_features = pd.read_csv('trainingData/audio_raw.csv')
     scaler = StandardScaler()
     x_features_scaled = scaler.fit_transform(x_features)
     pca = PCA(n_components=20)
