@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, flash, redirect, url_for
 from werkzeug.utils import secure_filename
 
 import audio_input
+import image_output
 
 """This is the main script that run the modules and connect to the user interface"""
 
@@ -57,7 +58,7 @@ def uploader():
 
 @app.route('/a')
 def img1():
-    # TODO: function to convert img #1 to csv (ie. csv_convert(img1.PNG))
+    image_output.image_output('userData/', 'user1.JPG')
     # TODO: function to combine img #1 with processed audio data (ie. csv_combine(img1_csv.csv, user_audio.csv))
     # TODO: Yue's function to analyze the csv file above (ie. svm(user_csv))
 
@@ -68,7 +69,7 @@ def img1():
 
 @app.route('/b')
 def img2():
-    # TODO: function to convert img #2 to csv (ie. csv_convert(img2.PNG))
+    image_output.image_output('userData/', 'user2.JPG')
     # TODO: function to combine img #2 with processed audio data (ie. csv_combine(img_csv.csv, user_audio.csv))
     # TODO: Yue's function to analyze the csv file above (ie. svm(user_csv))
 
@@ -79,7 +80,7 @@ def img2():
 
 @app.route('/c')
 def img3():
-    # TODO: function to convert img #3 to csv (ie. csv_convert(img3.PNG))
+    image_output.image_output('userData/', 'user3.JPG')
     # TODO: function to combine img #3 with processed audio data (ie. csv_combine(img_csv.csv, user_audio.csv))
     # TODO: Yue's function to analyze the csv file above (ie. svm(user_csv))
 
