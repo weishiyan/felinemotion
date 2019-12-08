@@ -21,6 +21,7 @@ def image_output(directory, image):
     img2 = np.asarray(img).reshape(-1)
     num = 400
     img_data = []
+    num_data = []
     for i in range(0, num):
         j = i * 100 + 1
         sum_img = sum(img2[j:100 + j])
