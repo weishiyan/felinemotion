@@ -3,6 +3,8 @@ import video_input as vi
 from flask import Flask, render_template, request, flash, redirect, url_for
 from werkzeug.utils import secure_filename
 
+import audio_input
+
 """This is the main script that run the modules and connect to the user interface"""
 
 """These TODOs are what needs to be done to fully run the main script!!!"""
@@ -44,7 +46,7 @@ def uploader():
             file.save(secure_filename(file.filename))
             # extract audio data and image frames from input
             vi.video_input("userInput")
-            # TODO: add Weishi's WAV file analysis here, export to csv
+            audio_input.audio_input('userData/userInput.wav')
             # TODO: add Jerry's 3 images here
             # proceed to image selection
             return render_template('image.html')
