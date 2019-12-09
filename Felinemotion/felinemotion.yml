@@ -1,4 +1,4 @@
-name: base
+name: felinemotion
 channels:
   - defaults
 dependencies:
