@@ -6,14 +6,11 @@ import csv
 from numpy import asarray
 from numpy import savetxt
 
-def cat_detect(pathString, path2String, detectorString):
+def cat_detect(pathString,  detectorString):
 
 	path = pathString
 	#Video Frame file path
 	#path = 'e:\\2019fall\\CSE583\\FellinEmotion\\cat-face-detector\\images\\'
-	path2 = path2String
-	#Images with cat face file save path
-	#path2 = 'e:\\2019fall\\CSE583\\FellinEmotion\\cat-face-detector\\image_select\\'
 	detect = detectorString
 	#CascadeClassifier (haarcascade_frontalcatface.xml) file path
 	#detect = 'E:\\2019fall\CSE583\FellinEmotion\cat-face-detector\haarcascade_frontalcatface.xml'
@@ -23,7 +20,8 @@ def cat_detect(pathString, path2String, detectorString):
 	for root, directories, files in os.walk(path):
 		for file in files:
 			files_out.append(os.path.join(root, file))
-
+	dirName = 'image_cat'
+	os.mkdir(dirName)
 	for files in files_out:
 		img = cv2.imread(files)
 		gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -44,4 +42,4 @@ def cat_detect(pathString, path2String, detectorString):
 				face=gray[my - 100:my + 100,mx - 100:mx + 100]
 				catFaces.append(face)
 				base = os.path.basename(files)
-				cv2.imwrite(os.path.join(path2, base), face)
+				cv2.imwrite(os.path.join('image_cat/', base), face)
