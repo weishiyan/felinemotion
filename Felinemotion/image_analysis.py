@@ -20,7 +20,7 @@ def cat_detect(pathString,  detectorString):
 	for root, directories, files in os.walk(path):
 		for file in files:
 			files_out.append(os.path.join(root, file))
-	dirName = 'image_cat'
+	dirName = 'catFaces'
 	os.mkdir(dirName)
 	for files in files_out:
 		img = cv2.imread(files)
@@ -42,4 +42,4 @@ def cat_detect(pathString,  detectorString):
 				face=gray[my - 100:my + 100,mx - 100:mx + 100]
 				catFaces.append(face)
 				base = os.path.basename(files)
-				cv2.imwrite(os.path.join('image_cat/', base), face)
+				cv2.imwrite(os.path.join('catFaces/', base), face)
