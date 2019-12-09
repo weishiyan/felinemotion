@@ -1,7 +1,21 @@
-# Felinemotion
+# Felinemotion to understand your cat!
 This is the felinemotion repo for CSE583 project
 
-# Project Structure
+
+## Background
+The domestic cat (Feliscatus) is one of the most attractive pets in the world, and it generates mysterious kinds of sound according to its mood and situation.In this software, we deal with the automatic classification of cat emotions using machine learning.
+
+The pet animals are close friends of the human from the time of human evolution, and they deliver their messages by producing some identical sounds. Most pets spend their whole time in human peripheries, thus sound analysis of pet animals is important. Domestic cat is one of the most widely loved pet animals in the world, and the whole population is around 88.3 million, according to the report of Live Science (2013).Understanding cat's emotion can be helpful for human beings in terms of security, prediction of behaviors, and intimate interactions if we are able to recognize them properly.
+
+### Description of data
+
+### Introduction of using SVM to learn cat emotion
+Support vector machines (SVMs) are a set of supervised learning methods used for classification, regression and outliers detection. The advantages of support vector machines are: 1) Effective in high dimensional spaces; 2) Still effective in cases where number of dimensions is greater than the number of samples; 3) Uses a subset of training points in the decision function (called support vectors), so it is also memory efficient; and 4) Versatile: different Kernel functions can be specified for the decision function. Common kernels are provided, but it is also possible to specify custom kernels.
+
+Linear Support Vector Classification (LinearSVC) is able to perform multi-class classification on a dataset. Similar to SVC with parameter kernel=’linear’, but implemented in terms of liblinear rather than libsvm, so it has more flexibility in the choice of penalties and loss functions and should scale better to large numbers of samples.
+
+
+## Project Structure
 
 ----
 ```
@@ -47,3 +61,5 @@ Felinemotion (master)
 
 ```
 ----
+
+## Installation

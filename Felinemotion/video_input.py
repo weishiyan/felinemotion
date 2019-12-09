@@ -18,18 +18,18 @@ def video_input(name):
     # Create a VideoCapture object
     cam = cv2.VideoCapture(name + ".mp4")
 
-    # try:
-    #     # creating a folder named data
-    #     if not os.path.exists("userData/frames"):
-    #         os.makedirs("userData/frames")
-    #
-    #     # if not created then raise error
-    # except OSError:
-    #     print('Error: Creating directory of frames')
-    #
-    # # Check if camera opened successfully
-    # if cam.isOpened() is False:
-    #     print("Unable to read camera feed")
+    try:
+        # creating a folder named data
+        if not os.path.exists("userData/frames"):
+            os.makedirs("userData/frames")
+
+        # if not created then raise error
+    except OSError:
+        print('Error: Creating directory of frames')
+
+    # Check if camera opened successfully
+    if cam.isOpened() is False:
+        print("Unable to read camera feed")
 
     # frame
     current_frame = 0
