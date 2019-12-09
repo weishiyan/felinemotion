@@ -25,34 +25,34 @@ Felinemotion (master)
 |---Data
     |---vid
         |---trainingSet
-            \---raw
+            |---raw
     |---img
         |---trainingSet
-            \---raw
+            |---raw
 |---Examples  
     |---example.ipynb  
 |---Felinemotion 
-    \---traningData
-    \---userData
-        \---frames
-        \---audio_test.csv
-        \---data_test.csv
-        \---image_test.csv
-        \userInput.wav
+    |---trainingData
+    |---userData
+        |---frames
+        |---audio_test.csv
+        |---data_test.csv
+        |---image_test.csv
+        |userInput.wav
     |---video_input.py
     |---cat_detect.py
     |---image_output.py
     |---main.py  
     |---audio_create_model.py
-    \---audio_input.py
-    \---audio_training.py
+    |---audio_input.py
+    |---audio_training.py
     |---image_batch_csv.py
     |---svm.py
-    |---tests/
+    |---tests
         |---__init__.py
         |---unittests.py
 |---doc
-    \---technical_review.pdf
+    |---technical_review.pdf
     |---Felinemotion_final.pdf
     |---functional_specifications.ipynb
     |---component_specifications.ipynb
