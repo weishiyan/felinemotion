@@ -1,3 +1,9 @@
+'''
+This module contains some essential functions for sound analysis
+All modules in this software need to import this module for proper usage
+
+'''
+
 import os
 from os.path import join
 
@@ -6,6 +12,10 @@ import librosa
 from numpy import savetxt
 
 def convert_mel_one(sound):
+    '''
+    This function convert one single wav file to numerical data using mel-spectrogram analysis
+    Return 1D array 
+    '''
     src, s_rate = librosa.load(sound, sr=16000, mono=True)
     len_second = 3.0 # 3 seconds
     src = src[:int(s_rate*len_second)] # crop first 3 seconds
@@ -16,6 +26,11 @@ def convert_mel_one(sound):
     return src_mel.flatten()
 
 def save_csv_raw(sound_folder):
+    '''
+    This function convert batch wav files in one folder and save all files in an N-demensional array csv file
+    The audio_raw.csv file will be save in the same folder as the raw wav files
+    The function return the label of each wav file
+    '''
     files_list = os.listdir(sound_folder)
     csv_file = np.zeros(12032)
     classifier = ['catID']
@@ -30,6 +45,9 @@ def save_csv_raw(sound_folder):
     return classifier
 
 def add_label():
+    '''
+    This function generate 20 alphabets as feature names for SVM
+    '''
     alpha_list = []
     alpha = 'a'
     for i in range(0, 20):

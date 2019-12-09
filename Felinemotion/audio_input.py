@@ -1,3 +1,7 @@
+'''
+This module contains the function that read in user input sound and save as audio_test.csv for fitting the model
+'''
+
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
@@ -8,6 +12,13 @@ import audio_training
 #### user input sound and dimension reduction
 
 def audio_input(wav_input):
+    '''
+    This function read input of the user input wav file
+    Then attach it to the whole data set and run PCA to reduce features
+    Save the converted and reduced user input as audio_test.csv for next step SVM
+    '''
+    if !wav_input.endswithi.endswith('.wav'):
+        raise TypeError("The input is not a wav file")
     user_sound = audio_training.convert_mel_one(wav_input)
     x_features = pd.read_csv('trainingData/audio_raw.csv')
     x_features.loc[len(x_features)] = user_sound
