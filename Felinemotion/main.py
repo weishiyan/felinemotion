@@ -5,16 +5,16 @@ from werkzeug.utils import secure_filename
 
 import audio_input
 import image_output
+import svm
+import random_pick_3
 
 """This is the main script that run the modules and connect to the user interface"""
 
 """These TODOs are what needs to be done to fully run the main script!!!"""
 # TODO: everyone's functions will receive input and export output into the directory, no returning variables
-# TODO: import and rename your own modules if necessary
 # TODO: test run your parts BEFORE putting it in the main script, make sure the variable names match
 # TODO: make the final environment
 # TODO: fix variables in html files if necessary
-# TODO: make result.html for appealing
 
 
 ALLOWED_EXTENSIONS = {'mp4'}
@@ -48,7 +48,7 @@ def uploader():
             # extract audio data and image frames from input
             vi.video_input("userInput")
             audio_input.audio_input('userData/userInput.wav')
-            # TODO: add Jerry's 3 images here
+            random_pick_3.pick_three('userData/catFaces', 'userData/cat3Faces')
             # proceed to image selection
             return render_template('image.html')
         else:
@@ -59,34 +59,37 @@ def uploader():
 @app.route('/a')
 def img1():
     image_output.image_output('userData/', 'user1.JPG')
-    # TODO: function to combine img #1 with processed audio data (ie. csv_combine(img1_csv.csv, user_audio.csv))
-    # TODO: Yue's function to analyze the csv file above (ie. svm(user_csv))
+    svm.csv_merge('userData/selected_image.csv', 'userData/audio_test.csv')
+    result = svm.classification('userData/user_csv.csv')
+    return 'Your cat is ' + str(result[0]) + '!'
 
     # proceed to output results
     # return render_template('result.html')
-    return 'a'
+    # return 'a'
 
 
 @app.route('/b')
 def img2():
     image_output.image_output('userData/', 'user2.JPG')
-    # TODO: function to combine img #2 with processed audio data (ie. csv_combine(img_csv.csv, user_audio.csv))
-    # TODO: Yue's function to analyze the csv file above (ie. svm(user_csv))
+    svm.csv_merge('userData/selected_image.csv', 'userData/audio_test.csv')
+    result = svm.classification('userData/user_csv.csv')
+    return 'Your cat is ' + str(result[0]) + '!'
 
     # proceed to output results
     # return render_template('result.html')
-    return 'b'
+    # return 'b'
 
 
 @app.route('/c')
 def img3():
     image_output.image_output('userData/', 'user3.JPG')
-    # TODO: function to combine img #3 with processed audio data (ie. csv_combine(img_csv.csv, user_audio.csv))
-    # TODO: Yue's function to analyze the csv file above (ie. svm(user_csv))
+    svm.csv_merge('userData/selected_image.csv', 'userData/audio_test.csv')
+    result = svm.classification('userData/user_csv.csv')
+    return 'Your cat is ' + str(result[0]) + '!'
 
     # proceed to output results
     # return render_template('result.html')
-    return 'c'
+    # return 'c'
 
 
 @app.route('/upload')

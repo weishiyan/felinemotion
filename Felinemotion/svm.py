@@ -52,7 +52,7 @@ def classification(term):
         raise ValueError("Invalid input file.")
 
     test = pd.read_csv(term)
-    test = test.iolc[:, 1:]
+    test = test.iloc[:, 1:]
 
     y_pred = clf.predict(test)
     return(y_pred)
