@@ -20,9 +20,9 @@ def pick_three(path2string, outputstring):
 	pick1_1 = cv2.imread(pick1)
 	pick1_2 = cv2.imread(pick2)
 	pick1_3 = cv2.imread(pick3)
-	base1 = os.path.basename(pick1)
-	base2 = os.path.basename(pick2)
-	base3 = os.path.basename(pick3)
+	base1 = 'user1.jpg'
+	base2 = 'user2.jpg'
+	base3 = 'user3.jpg'
 	cv2.imwrite(os.path.join(output, base1), pick1_1)
 	cv2.imwrite(os.path.join(output, base2), pick1_2)
 	cv2.imwrite(os.path.join(output, base3), pick1_3)
