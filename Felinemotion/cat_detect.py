@@ -18,14 +18,14 @@ def cat_detect(pathString, path2String, detectorString):
 	#CascadeClassifier (haarcascade_frontalcatface.xml) file path
 	#detect = 'E:\\2019fall\CSE583\FellinEmotion\cat-face-detector\haarcascade_frontalcatface.xml'
 	
-	files = []
+	files_out = []
 	# r=root, d=directories, f = files
-	for r, d, f in os.walk(path):
-		for file in f:
-			files.append(os.path.join(r, file))
+	for root, directories, files in os.walk(path):
+		for file in files:
+			files_out.append(os.path.join(root, file))
 	
-	for f in files:
-		img = cv2.imread(f)
+	for files in files_out:
+		img = cv2.imread(files)
 		gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 		detector = cv2.CascadeClassifier(detect)
 		rects = detector.detectMultiScale(gray, scaleFactor=1.3,
@@ -34,14 +34,14 @@ def cat_detect(pathString, path2String, detectorString):
 			rows=rects.shape[0]
 			catFaces=[]
 			for (i, (x, y, w, h)) in enumerate(rects):    
-				mx = (2*x + w)/2
-				my = (2*y + h)/2
-				mx = mx.astype(int)
-				my = my.astype(int)
-				cv2.rectangle(img, (mx - 100,my - 100), (mx + 100, my + 100), (0, 0, 255), 2)
+				mid_x = (2*x + w)/2
+				mid_y = (2*y + h)/2
+				mid_x = mid_x.astype(int)
+				mid_y = mid_y.astype(int)
+				cv2.rectangle(img, (mid_x - 100,mid_y - 100), (mid_x + 100, mid_y + 100), (0, 0, 255), 2)
 				cv2.putText(img, "Cat #{}".format(i + 1), (x, y - 10),cv2.FONT_HERSHEY_SIMPLEX, 0.55, (0, 0, 255), 2)
 			for (i, (x, y, w, h)) in enumerate(rects):
-				face=gray[my - 100:my + 100,mx - 100:mx + 100]
+				face=gray[mid_y - 100:mid_y + 100,mid_x - 100:mid_x + 100]
 				catFaces.append(face)
-				base = os.path.basename(f)
+				base = os.path.basename(files)
 				cv2.imwrite(os.path.join(path2, base), face)
