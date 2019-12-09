@@ -63,4 +63,12 @@ Felinemotion (master)
 ```
 ----
 
-## Installation
+### Installation
+1. Clone the repo
+2. Install environment $ conda create -f felinemotion.yml
+
+### User Guide
+1. Run main.py
+2. Open Felinemotion.html
+3. After uloading the video, open templates/image.html
+4. Select and confirm the best image expressing the emotion
