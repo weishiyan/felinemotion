@@ -35,15 +35,22 @@ def cat_detect(pathString,  detectorString):
 			rows=rects.shape[0]
 			# catFaces=[]
 			for (i, (x, y, w, h)) in enumerate(rects):
-				mx = (2*x + w)/2
-				my = (2*y + h)/2
-				mx = mx.astype(int)
-				my = my.astype(int)
-				cv2.rectangle(img, (mx - 100,my - 100), (mx + 100, my + 100), (0, 0, 255), 2)
-				cv2.putText(img, "Cat #{}".format(i + 1), (x, y - 10),cv2.FONT_HERSHEY_SIMPLEX, 0.55, (0, 0, 255), 2)
-			for (i, (x, y, w, h)) in enumerate(rects):
-				face=gray[my - 100:my + 100,mx - 100:mx + 100]
-				# catFaces.append(face)
-				base = os.path.basename(files)
-				cv2.imwrite(os.path.join('userData/catFaces/', base), face)
-				# cv2.imwrite('userData/catFaces/' + base, face)
+				mid_x = (2*x + w)/2
+				mid_y = (2*y + h)/2
+				mid_x = mid_x.astype(int)
+				mid_y = mid_y.astype(int)
+				cv2.rectangle(img, (mid_x - 100,mid_y - 100), (mid_x + 100, mid_y + 100), (0, 0, 255), 2)
+				cv2.putText(img, "Cat #{}".format(i + 1), (mid_x, mid_y - 10),cv2.FONT_HERSHEY_SIMPLEX, 0.55, (0, 0, 255), 2)
+			gray_size = gray.shape
+			x_rang = gray_size[0] - 100
+			y_rang = gray_size[1] - 100
+			if mid_x <= x_rang:
+				if 100 <= mid_x:
+					if mid_y <= y_rang:
+						if 100 <= mid_y:
+							for (i, (x, y, w, h)) in enumerate(rects):
+								face=gray[mid_y - 100:mid_y + 100,mid_x - 100:mid_x + 100]
+								# catFaces.append(face)
+								base = os.path.basename(files)
+								cv2.imwrite(os.path.join('userData/catFaces/', base), face)
+								# cv2.imwrite('userData/catFaces/' + base, face)
