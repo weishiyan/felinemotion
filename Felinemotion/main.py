@@ -46,8 +46,8 @@ def uploader():
             # extract audio data and image frames from input
             vi.video_input("userInput")
             audio_input.audio_input('userData/userInput.wav')
-            image_analysis.cat_detect('userData/catFaces/', 'userData/cat3Faces/', 'haarcascade_frontalcatface.xml')
-            random_pick_3.pick_three('userData/catFaces', 'userData/cat3Faces')
+            image_analysis.cat_detect('userData/frames/', 'haarcascade_frontalcatface.xml')
+            # random_pick_3.pick_three('userData/catFaces')
             # proceed to image selection
             return render_template('image.html')
         else:
