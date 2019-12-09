@@ -1,6 +1,5 @@
-import os
 import video_input as vi
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
 
 import audio_input
@@ -13,8 +12,6 @@ import random_pick_3
 """These TODOs are what needs to be done to fully run the main script!!!"""
 # TODO: everyone's functions will receive input and export output into the directory, no returning variables
 # TODO: test run your parts BEFORE putting it in the main script, make sure the variable names match
-# TODO: make the final environment
-# TODO: fix variables in html files if necessary
 
 
 ALLOWED_EXTENSIONS = {'mp4'}
@@ -58,38 +55,29 @@ def uploader():
 
 @app.route('/a')
 def img1():
+    """This function received the selected image, convert it to csv and run SVM analysis"""
     image_output.image_output('userData/', 'user1.JPG')
     svm.csv_merge('userData/selected_image.csv', 'userData/audio_test.csv')
     result = svm.classification('userData/user_csv.csv')
     return 'Your cat is ' + str(result[0]) + '!'
 
-    # proceed to output results
-    # return render_template('result.html')
-    # return 'a'
-
 
 @app.route('/b')
 def img2():
+    """This function received the selected image, convert it to csv and run SVM analysis"""
     image_output.image_output('userData/', 'user2.JPG')
     svm.csv_merge('userData/selected_image.csv', 'userData/audio_test.csv')
     result = svm.classification('userData/user_csv.csv')
     return 'Your cat is ' + str(result[0]) + '!'
 
-    # proceed to output results
-    # return render_template('result.html')
-    # return 'b'
-
 
 @app.route('/c')
 def img3():
+    """This function received the selected image, convert it to csv and run SVM analysis"""
     image_output.image_output('userData/', 'user3.JPG')
     svm.csv_merge('userData/selected_image.csv', 'userData/audio_test.csv')
     result = svm.classification('userData/user_csv.csv')
     return 'Your cat is ' + str(result[0]) + '!'
-
-    # proceed to output results
-    # return render_template('result.html')
-    # return 'c'
 
 
 @app.route('/upload')
