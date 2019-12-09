@@ -65,7 +65,7 @@ Felinemotion (master)
 
 ### Installation
 1. Clone the repo
-2. Install environment $ conda create -f felinemotion.yml
+2. Install environment $ conda env create -f felinemotion.yml
 
 ### User Guide
 1. Run main.py
