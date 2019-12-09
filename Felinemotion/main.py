@@ -2,6 +2,7 @@ import video_input as vi
 from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
 
+import cv2
 import audio_input
 import image_output
 import svm
@@ -9,11 +10,6 @@ import random_pick_3
 import image_analysis
 
 """This is the main script that run the modules and connect to the user interface"""
-
-"""These TODOs are what needs to be done to fully run the main script!!!"""
-# TODO: everyone's functions will receive input and export output into the directory, no returning variables
-# TODO: test run your parts BEFORE putting it in the main script, make sure the variable names match
-
 
 ALLOWED_EXTENSIONS = {'mp4'}
 UPLOAD_FOLDER = ''
@@ -47,9 +43,32 @@ def uploader():
             vi.video_input("userInput")
             audio_input.audio_input('userData/userInput.wav')
             image_analysis.cat_detect('userData/frames/', 'haarcascade_frontalcatface.xml')
-            # random_pick_3.pick_three('userData/catFaces')
+            random_pick_3.pick_three('userData/catFaces')
+            im1 = cv2.imwrite('userData/user1.jpg')
             # proceed to image selection
-            return render_template('image.html')
+            return render_template('image.html', img1=im1)
+            # return '''
+            #     <html>
+            #        <body>
+            #           <h1>Please select the image best describes the emotion</h1>
+            #           <a href="http://localhost:5000/a" onclick="return myFunction()">
+            #              <img src="../userData/user1.jpg" alt="Image 1" style="width:250px;height:250px;">
+            #           </a>
+            #           <a href="http://localhost:5000/b" onclick="return myFunction()">
+            #              <img src="../userData/user2.jpg" alt="Image 2" style="width:250px;height:250px;">
+            #           </a>
+            #           <a href="http://localhost:5000/c" onclick="return myFunction()">
+            #              <img src="../userData/user3.jpg" alt="Image 3" style="width:250px;height:250px;">
+            #           </a>
+            #
+            #        <script>
+            #        function myFunction() {
+            #           return confirm("The image you selected will be used to analyze emotion.\nProceed?");
+            #        }
+            #        </script>
+            #        </body>
+            #     </html>
+            #     '''
         else:
             # throw warning when wrong file type uploaded
             return "Wrong file type! Please re-upload a different file."

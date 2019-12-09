@@ -21,7 +21,7 @@ def pick_three(path2string):
 			files_out.append(os.path.join(root, file))
 	rand = random.sample(files_out, 3)
 	dirName = 'userData/cat3Faces'
-	os.mkdir(dirName)
+	# os.mkdir(dirName)
 	pick1 = rand[1]
 	pick2 = rand[2]
 	pick3 = rand[0]
@@ -31,6 +31,6 @@ def pick_three(path2string):
 	base1 = 'user1.jpg'
 	base2 = 'user2.jpg'
 	base3 = 'user3.jpg'
-	cv2.imwrite(os.path.join('userData/cat3Faces/', base1), pick1_1)
-	cv2.imwrite(os.path.join('userData/cat3Faces/', base2), pick1_2)
-	cv2.imwrite(os.path.join('userData/cat3Faces/', base3), pick1_3)
+	cv2.imwrite(os.path.join('userData/', base1), pick1_1)
+	cv2.imwrite(os.path.join('userData/', base2), pick1_2)
+	cv2.imwrite(os.path.join('userData/', base3), pick1_3)
