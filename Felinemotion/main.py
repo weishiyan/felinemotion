@@ -12,7 +12,7 @@ import image_analysis
 """This is the main script that run the modules and connect to the user interface"""
 
 ALLOWED_EXTENSIONS = {'mp4'}
-UPLOAD_FOLDER = ''
+UPLOAD_FOLDER = 'userData'
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -44,31 +44,8 @@ def uploader():
             audio_input.audio_input('userData/userInput.wav')
             image_analysis.cat_detect('userData/frames/', 'haarcascade_frontalcatface.xml')
             random_pick_3.pick_three('userData/catFaces')
-            im1 = cv2.imwrite('userData/user1.jpg')
             # proceed to image selection
-            return render_template('image.html', img1=im1)
-            # return '''
-            #     <html>
-            #        <body>
-            #           <h1>Please select the image best describes the emotion</h1>
-            #           <a href="http://localhost:5000/a" onclick="return myFunction()">
-            #              <img src="../userData/user1.jpg" alt="Image 1" style="width:250px;height:250px;">
-            #           </a>
-            #           <a href="http://localhost:5000/b" onclick="return myFunction()">
-            #              <img src="../userData/user2.jpg" alt="Image 2" style="width:250px;height:250px;">
-            #           </a>
-            #           <a href="http://localhost:5000/c" onclick="return myFunction()">
-            #              <img src="../userData/user3.jpg" alt="Image 3" style="width:250px;height:250px;">
-            #           </a>
-            #
-            #        <script>
-            #        function myFunction() {
-            #           return confirm("The image you selected will be used to analyze emotion.\nProceed?");
-            #        }
-            #        </script>
-            #        </body>
-            #     </html>
-            #     '''
+            return render_template('image.html')
         else:
             # throw warning when wrong file type uploaded
             return "Wrong file type! Please re-upload a different file."
@@ -77,7 +54,7 @@ def uploader():
 @app.route('/a')
 def img1():
     """This function received the selected image, convert it to csv and run SVM analysis"""
-    image_output.image_output('userData/', 'user1.JPG')
+    image_output.image_output('userData/', 'user1.jpg')
     svm.csv_merge('userData/selected_image.csv', 'userData/audio_test.csv')
     result = svm.classification('userData/user_csv.csv')
     return 'Your cat is ' + str(result[0]) + '!'
@@ -86,7 +63,7 @@ def img1():
 @app.route('/b')
 def img2():
     """This function received the selected image, convert it to csv and run SVM analysis"""
-    image_output.image_output('userData/', 'user2.JPG')
+    image_output.image_output('userData/', 'user2.jpg')
     svm.csv_merge('userData/selected_image.csv', 'userData/audio_test.csv')
     result = svm.classification('userData/user_csv.csv')
     return 'Your cat is ' + str(result[0]) + '!'
@@ -95,7 +72,7 @@ def img2():
 @app.route('/c')
 def img3():
     """This function received the selected image, convert it to csv and run SVM analysis"""
-    image_output.image_output('userData/', 'user3.JPG')
+    image_output.image_output('userData/', 'user3.jpg')
     svm.csv_merge('userData/selected_image.csv', 'userData/audio_test.csv')
     result = svm.classification('userData/user_csv.csv')
     return 'Your cat is ' + str(result[0]) + '!'
@@ -108,4 +85,3 @@ def upload_file():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
