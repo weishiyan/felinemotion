@@ -1,15 +1,15 @@
-import video_input as vi
+"""This is the main script that run the modules and connect to the user interface"""
+
 from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
+import video_input as vi
 
-import cv2
 import audio_input
 import image_output
 import svm
 import random_pick_3
 import image_analysis
 
-"""This is the main script that run the modules and connect to the user interface"""
 
 ALLOWED_EXTENSIONS = {'mp4'}
 UPLOAD_FOLDER = 'userData'
@@ -32,7 +32,6 @@ def uploader():
         # submit an empty part without filename
         file = request.files['file']
         if file.filename == '':
-            # flash('No selected file')
             return 'No files uploaded!'
 
         if file and allowed_file(file.filename):
@@ -45,10 +44,10 @@ def uploader():
             image_analysis.cat_detect('userData/frames/', 'haarcascade_frontalcatface.xml')
             random_pick_3.pick_three('userData/catFaces')
             # proceed to image selection
-            return render_template('image.html')
-        else:
-            # throw warning when wrong file type uploaded
-            return "Wrong file type! Please re-upload a different file."
+            return "Video received, please proceed to open /templates/image.html"
+
+        # throw warning when wrong file type uploaded
+        return "Wrong file type! Please re-upload a different file."
 
 
 @app.route('/a')
