@@ -10,6 +10,7 @@ class UnitTests(unittest.TestCase):
         '''
         Check if the model creates a file for saving cat face images
         '''
+        image_analysis.cat_detect('userData/frames/', 'haarcascade_frontalcatface.xml')
         created_folder = 'userData/catFaces/'
         self.assertTrue(os.path.exists(created_folder))
 
