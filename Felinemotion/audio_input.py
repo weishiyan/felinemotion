@@ -17,7 +17,7 @@ def audio_input(wav_input):
     Then attach it to the whole data set and run PCA to reduce features
     Save the converted and reduced user input as audio_test.csv for next step SVM
     '''
-    if !wav_input.endswithi.endswith('.wav'):
+    if !wav_input.endswith('.wav'):
         raise TypeError("The input is not a wav file")
     user_sound = audio_training.convert_mel_one(wav_input)
     x_features = pd.read_csv('trainingData/audio_raw.csv')
