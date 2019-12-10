@@ -11,6 +11,14 @@ import cv2
 
 def video_input(name):
     """Extract audio file and images frame from user video"""
+    # make sure that the file exists
+    try:
+        test = open(name + ".mp4")
+    except IOError:
+        print("File not accessible")
+    finally:
+        test.close()
+
     # Extract the audio into wav file
     audio = mp.AudioFileClip(name + ".mp4")
     audio.write_audiofile('./userData/' + name + ".wav")

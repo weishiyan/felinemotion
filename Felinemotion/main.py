@@ -32,7 +32,7 @@ def uploader():
         # submit an empty part without filename
         file = request.files['file']
         if file.filename == '':
-            return 'No files uploaded!'
+            return "No files uploaded!"
 
         if file and allowed_file(file.filename):
             # rename the user input video and save it
@@ -79,6 +79,7 @@ def img3():
 
 @app.route('/upload')
 def upload_file():
+    """default"""
     return render_template('Felinemotion.html')
 
 
