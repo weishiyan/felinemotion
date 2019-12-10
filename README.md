@@ -67,10 +67,11 @@ Felinemotion (master)
 ### Installation
 1. Clone the repo
 2. Install environment `conda env create -f felinemotion.yml`
+
 The software are ready to be run.
 
 ### User Guide
-1. Run main.py
+1. Run main.py to let the Python script run in background
 2. Open Felinemotion.html and upload the video
 
 ![](https://github.com/wyan1992/felinemotion/blob/master/videoInput.PNG)
