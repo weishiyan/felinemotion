@@ -66,7 +66,8 @@ Felinemotion (master)
 
 ### Installation
 1. Clone the repo
-2. Install environment $ conda env create -f felinemotion.yml
+2. Install environment '''$ conda env create -f felinemotion.yml'''
+The software are ready to be run.
 
 ### User Guide
 1. Run main.py
@@ -74,11 +75,11 @@ Felinemotion (master)
 
 ![](https://github.com/wyan1992/felinemotion/blob/master/videoInput.PNG)
 
-3. After uploading the video, open image.html in templates directory
+3. After uploading the video, ther will be a notice to open image.html in templates directory
 
 ![](https://github.com/wyan1992/felinemotion/blob/master/inputReceived.PNG)
 
-4. Select and confirm the best image expressing the emotion
+4. After open image.html, select and confirm the best image expressing the emotion
 
 ![](https://github.com/wyan1992/felinemotion/blob/master/imageSelect.png)
 
