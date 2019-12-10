@@ -5,7 +5,7 @@ Ouput: images with cat face
 """
 import os
 import cv2
-import clear_folder
+# import clear_folder
 
 def cat_detect(pathstring, detectorstring):
     """
@@ -21,14 +21,11 @@ def cat_detect(pathstring, detectorstring):
     detect = detectorstring
     #CascadeClassifier (haarcascade_frontalcatface.xml) file path
     #detect = 'E:\\2019fall\CSE583\FellinEmotion\cat-face-detector\haarcascade_frontalcatface.xml'
-
     files_out = []
-    
     # import raw images
     for root, directories, files in os.walk(path):
         for file in files:
             files_out.append(os.path.join(root, file))
-    
     # create folder
     dir_name = 'userData/catFaces'
     os.mkdir(dir_name)
