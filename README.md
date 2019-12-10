@@ -39,7 +39,7 @@ Felinemotion (master)
         |---data_test.csv
         |---image_test.csv
         |userInput.wav
-    |---video_input.py
+    |---cat_detect.py
     |---image_analysis.py
     |---random_pick_3.py
     |---image_output.py
@@ -47,7 +47,7 @@ Felinemotion (master)
     |---audio_create_model.py
     |---audio_input.py
     |---audio_training.py
-    |---image_batch_csv.py
+    |---video_input.py
     |---svm.py
     |---tests
         |---__init__.py
