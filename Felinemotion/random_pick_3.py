@@ -21,7 +21,6 @@ def pick_three(path2string):
             files_out.append(os.path.join(root, file))
     # random pick three
     rand = random.sample(files_out, 3)
-    
     dir_name = 'userData/cat3Faces'
     # os.mkdir(dir_name)
     pick1 = rand[1]
