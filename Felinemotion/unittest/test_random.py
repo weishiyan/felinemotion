@@ -1,9 +1,13 @@
-#!/usr/bin/env python
-# coding: utf-8
+"""
+unit test for module random_pick_3
+"""
 import os
 import unittest
 import random_pick_3
 class UnitTests(unittest.TestCase):
+    """
+    unit test
+    """
     def test_image(self):
         '''
         Check if the output file is jpg
@@ -13,4 +17,3 @@ class UnitTests(unittest.TestCase):
 
 suite = unittest.TestLoader().loadTestsFromTestCase(UnitTests)
 _ = unittest.TextTestRunner().run(suite)
-
