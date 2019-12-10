@@ -71,7 +71,6 @@ Felinemotion (master)
 ### User Guide
 1. Run main.py
 2. Open Felinemotion.html
-![Video input](https://github.com/wyan1992/felinemotion/blob/master/videoInput.PNG)
-
 3. After uloading the video, open templates/image.html
+![Video input](https://github.com/wyan1992/felinemotion/blob/master/videoInput.PNG | width=100)
 4. Select and confirm the best image expressing the emotion
