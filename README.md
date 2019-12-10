@@ -84,4 +84,4 @@ Felinemotion (master)
 
 5. The software will outout an emotion best fit from the data
 
-![](https://github.com/wyan1992/felinemotion/blob/master/result.png)
+![](https://github.com/wyan1992/felinemotion/blob/master/result.PNG)
