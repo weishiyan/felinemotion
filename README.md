@@ -73,6 +73,6 @@ Felinemotion (master)
 2. Open Felinemotion.html
 3. After uloading the video, open templates/image.html
 
-![](/videoInput.PNG =200x)
+![](./videoInput.PNG =200x)
 
 4. Select and confirm the best image expressing the emotion
