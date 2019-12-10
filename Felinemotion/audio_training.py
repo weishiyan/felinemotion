@@ -14,7 +14,7 @@ from numpy import savetxt
 def convert_mel_one(sound):
     '''
     This function convert one single wav file to numerical data using mel-spectrogram analysis
-    Return 1D array 
+    Return 1D array
     '''
     src, s_rate = librosa.load(sound, sr=16000, mono=True)
     len_second = 3.0 # 3 seconds
@@ -27,7 +27,8 @@ def convert_mel_one(sound):
 
 def save_csv_raw(sound_folder):
     '''
-    This function convert batch wav files in one folder and save all files in an N-demensional array csv file
+    This function convert batch wav files in one folder and
+    save all files in an N-demensional array csv file
     The audio_raw.csv file will be save in the same folder as the raw wav files
     The function return the label of each wav file
     '''

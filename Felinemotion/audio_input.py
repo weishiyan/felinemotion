@@ -1,5 +1,6 @@
 '''
-This module contains the function that read in user input sound and save as audio_test.csv for fitting the model
+This module contains the function that read in user input sound
+and save as audio_test.csv for fitting the model
 '''
 
 import numpy as np
