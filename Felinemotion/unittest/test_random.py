@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
+import os
 import unittest
 import random_pick_3
 class UnitTests(unittest.TestCase):
