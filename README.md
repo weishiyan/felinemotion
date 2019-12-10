@@ -70,9 +70,18 @@ Felinemotion (master)
 
 ### User Guide
 1. Run main.py
-2. Open Felinemotion.html
-3. After uloading the video, open templates/image.html
+2. Open Felinemotion.html and upload the video
 
-![](https://github.com/wyan1992/felinemotion/blob/master/videoInput.PNG =200x)
+![](https://github.com/wyan1992/felinemotion/blob/master/videoInput.PNG)
+
+3. After uploading the video, open image.html in templates directory
+
+![](https://github.com/wyan1992/felinemotion/blob/master/inputReceived.PNG)
 
 4. Select and confirm the best image expressing the emotion
+
+![](https://github.com/wyan1992/felinemotion/blob/master/imageSelect.png)
+
+5. The software will outout an emotion best fit from the data
+
+![](https://github.com/wyan1992/felinemotion/blob/master/result.png)
